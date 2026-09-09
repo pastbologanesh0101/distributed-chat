@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dchat"
+version = "0.1.0"
+description = "A fault-tolerant distributed chat server built on a from-scratch implementation of the Raft consensus algorithm"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Vishwanathan Tamizharasan" }]
+keywords = ["distributed-systems", "raft", "consensus", "replication", "sockets", "asyncio", "fault-tolerance"]
+
+[project.scripts]
+dchat = "dchat.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["dchat"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
